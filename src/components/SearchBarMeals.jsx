@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getMeals } from '../services';
+import { SearchBarStyle } from '../styles/styles';
 
 export default function SearchBarMeals() {
   const [radioState, setRadioState] = useState('ingredient-radio');
@@ -27,52 +28,56 @@ export default function SearchBarMeals() {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        onChange={ ({ target }) => setInput(target.value) }
-        data-testid="search-input"
-      />
-      <label htmlFor="ingredient-radio">
+    <SearchBarStyle>
+      <div className="divLabel">
+        <label htmlFor="ingredient-radio">
+          <input
+            value="ingredient-radio"
+            type="radio"
+            data-testid="ingredient-search-radio"
+            id="ingredient-radio"
+            name="radioSelect"
+            onClick={ ({ target }) => setRadioState(target.value) }
+          />
+          Ingrediente
+        </label>
+        <label htmlFor="name-radio">
+          <input
+            value="name-radio"
+            type="radio"
+            data-testid="name-search-radio"
+            id="name-radio"
+            name="radioSelect"
+            onClick={ ({ target }) => setRadioState(target.value) }
+          />
+          Nome
+        </label>
+        <label htmlFor="first-letter-radio">
+          <input
+            value="first-letter-radio"
+            type="radio"
+            data-testid="first-letter-search-radio"
+            id="first-letter-radio"
+            name="radioSelect"
+            onClick={ ({ target }) => setRadioState(target.value) }
+          />
+          Primeira Letra
+        </label>
+      </div>
+      <div className="buscar-e-input">
         <input
-          value="ingredient-radio"
-          type="radio"
-          data-testid="ingredient-search-radio"
-          id="ingredient-radio"
-          name="radioSelect"
-          onClick={ ({ target }) => setRadioState(target.value) }
+          type="text"
+          onChange={ ({ target }) => setInput(target.value) }
+          data-testid="search-input"
         />
-        Ingrediente
-      </label>
-      <label htmlFor="name-radio">
-        <input
-          value="name-radio"
-          type="radio"
-          data-testid="name-search-radio"
-          id="name-radio"
-          name="radioSelect"
-          onClick={ ({ target }) => setRadioState(target.value) }
-        />
-        Nome
-      </label>
-      <label htmlFor="first-letter-radio">
-        <input
-          value="first-letter-radio"
-          type="radio"
-          data-testid="first-letter-search-radio"
-          id="first-letter-radio"
-          name="radioSelect"
-          onClick={ ({ target }) => setRadioState(target.value) }
-        />
-        Primeira Letra
-      </label>
-      <button
-        type="button"
-        data-testid="exec-search-btn"
-        onClick={ () => getSearch() }
-      >
-        Buscar
-      </button>
-    </div>
+        <button
+          type="button"
+          data-testid="exec-search-btn"
+          onClick={ () => getSearch() }
+        >
+          Buscar
+        </button>
+      </div>
+    </SearchBarStyle>
   );
 }

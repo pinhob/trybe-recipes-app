@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import {
-  Input,
-  ButtonLogin,
-  FormLogin,
-  DivLogin,
-  DivBackgroundLogin,
-} from '../styles/styles';
+import logo from '../images/Logo.png';
+import { LoginStyle } from '../styles/styles';
 // import PropTypes from 'prop-types';
 
 function Login() {
@@ -38,34 +33,37 @@ function Login() {
   }
   if (redirect) return <Redirect to="/comidas" />;
   return (
-    <>
-      <DivBackgroundLogin />
-      <FormLogin onSubmit={ onSubmit }>
-        <DivLogin>
-          <Input
-            type="email"
-            value={ email }
-            onChange={ (event) => setEmail(event.target.value) }
-            data-testid="email-input"
-            placeholder="Insira seu email"
-          />
-          <Input
-            type="password"
-            data-testid="password-input"
-            value={ password }
-            onChange={ (event) => setPassword(event.target.value) }
-            placeholder="Insira sua senha"
-          />
-          <ButtonLogin
-            type="submit"
-            disabled={ validation }
-            data-testid="login-submit-btn"
-          >
-            Entrar
-          </ButtonLogin>
-        </DivLogin>
-      </FormLogin>
-    </>
+    <LoginStyle>
+      <div className="DivBackgroundLogin">
+        <div className="DivLogoForm">
+          <img src={ logo } alt="Logotipo" />
+          <form className="form-login" onSubmit={ onSubmit }>
+            <input
+              type="email"
+              value={ email }
+              onChange={ (event) => setEmail(event.target.value) }
+              data-testid="email-input"
+              placeholder="Insira seu email"
+            />
+            <input
+              type="password"
+              data-testid="password-input"
+              value={ password }
+              onChange={ (event) => setPassword(event.target.value) }
+              placeholder="Insira sua senha"
+            />
+            <button
+              className="ButtonLogin"
+              type="submit"
+              disabled={ validation }
+              data-testid="login-submit-btn"
+            >
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </LoginStyle>
   );
 }
 
