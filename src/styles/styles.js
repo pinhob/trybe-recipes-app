@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import backgroundLogin from '../images/backGroundLogin.jpg';
 // Agradecimentos ao nosso amigo Matheus Duarte, administrador
-// do Notion da Turma, por nos elucidar quanto ao uso da styled-components.
+// do Notion da BeeDev, por nos elucidar quanto ao uso da styled-components.
 
 export const LoginStyle = styled.div`
   .DivBackgroundLogin {
