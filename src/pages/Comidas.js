@@ -24,7 +24,7 @@ function Comidas() {
   }, [dispatch, defaultURL]);
 
   return (
-    <div>
+    <div className="">
       <Header title="Comidas" mealOrDrink="meal" />
       <main>
         <ButtonCategoryMeals />
