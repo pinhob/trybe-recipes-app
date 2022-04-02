@@ -9,6 +9,7 @@ function MealCard({ meal, id }) {
     <Link to={ `/comidas/${meal.idMeal}` }>
       <div data-testid={ `${id}-recipe-card` }>
         <img
+          width="350px"
           src={ strMealThumb }
           data-testid={ `${id}-card-img` }
           alt="Meal"
